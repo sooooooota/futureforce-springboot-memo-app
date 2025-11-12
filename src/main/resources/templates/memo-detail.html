@@ -22,6 +22,12 @@
             <div class="note-card-content">
                 <p class="note-card-text" th:text="${memo.content}">本文</p>
             </div>
+			<div class="note-badge" th:switch="${memo.priority.name()}">
+				<span class="note-badge low" th:case="'LOW'">低</span>
+                <span class="note-badge medium" th:case="'MEDIUM'">中</span>
+                <span class="note-badge high" th:case="'HIGH'">高</span>
+				
+			</div>
 
             <div class="note-card-footer detail-footer">
                 <p class="note-date" th:text="${#temporals.format(memo.createdAt, 'yyyy/MM/dd HH:mm')}">作成日時</p>

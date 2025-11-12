@@ -28,6 +28,11 @@
                 </div>
                 <div class="note-card-footer">
                     <p class="note-date" th:text="${#temporals.format(memo.createdAt, 'yyyy/MM/dd HH:mm')}">日付</p>
+					<p class="note-badge" th:switch="${memo.priority.name()}">
+						<span class="note-badge low" th:case="'LOW'">低</span>
+                        <span class="note-badge medium" th:case="'MEDIUM'">中</span>
+                        <span class="note-badge high" th:case="'HIGH'">高</span>
+					</p>
                     <div class="note-actions">
                         <a th:href="@{|/memo/detail/${memo.id}|}" class="btn btn-primary">詳細</a>
                         <a th:href="@{|/memo/delete/${memo.id}|}" class="btn btn-danger">
